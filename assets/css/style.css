@@ -145,13 +145,6 @@ em{font-style:normal;background:var(--grad);-webkit-background-clip:text;backgro
 @keyframes cue{to{top:110%}}
 @media (max-width:980px){.hero-hud{display:none}}
 
-/* ---------- Marquee ---------- */
-.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--gold);color:#16100a;transform:rotate(-2deg) scale(1.04);margin:30px 0 10px;position:relative;z-index:3}
-.marquee-track{display:flex;width:max-content;gap:34px;padding:18px 0;animation:marq 32s linear infinite;align-items:center}
-.marquee span{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,3.4vw,46px);text-transform:uppercase;letter-spacing:-.02em}
-.marquee b{font-size:clamp(16px,2vw,26px)}
-@keyframes marq{to{transform:translateX(-50%)}}
-
 /* ---------- Section head ---------- */
 section{position:relative}
 .section-head{margin-bottom:clamp(40px,6vw,80px);max-width:900px}
