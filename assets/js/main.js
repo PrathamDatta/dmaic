@@ -183,7 +183,7 @@
 
     const N = innerWidth < 700 ? 1400 : 3200;
     const pos = new Float32Array(N * 3), seed = new Float32Array(N * 4), col = new Float32Array(N * 3);
-    const palette = [[.95, .70, .24], [1, .85, .48], [.96, .94, .89], [.10, .70, .94], [.85, .62, .25]];
+    const palette = [[.93, .64, .14], [.96, .76, .30], [.12, .34, .84], [.06, .62, .85], [.78, .52, .12]];
     for (let i = 0; i < N; i++) {
       pos[i * 3] = (Math.random() - .5) * 34;
       pos[i * 3 + 1] = (Math.random() - .5) * 22;
