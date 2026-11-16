@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dMaic Innovations | Delivering Smart Technologies</title>
+<meta name="description" content="dMaic Innovations Pvt. Ltd. manufactures post-harvest agricultural processing machinery: Pre Cleaners, Fine Cleaners, Gravity Separators, De-stoners, and turnkey seed and grain processing plants. Bengaluru, India.">
+<link rel="icon" href="assets/img/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pl-grains" id="plGrains"></div>
+  <div class="pl-inner">
+    <img src="assets/img/logo2.png" alt="" class="pl-logo">
+    <div class="pl-count"><span id="plNum">0</span><small>%</small></div>
+    <div class="pl-bar"><i id="plBar"></i></div>
+    <p class="pl-label mono">Calibrating screens &middot; Balancing decks &middot; Spinning fans</p>
+  </div>
+  <div class="pl-shutter pl-shutter--a"></div>
+  <div class="pl-shutter pl-shutter--b"></div>
+</div>
+
+<!-- ============ CURSOR / PROGRESS / NOISE ============ -->
+<div class="cursor" id="cursor"><span class="cursor-label" id="cursorLabel"></span></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-progress"><i id="scrollProgress"></i></div>
+<div class="noise" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#home" class="nav-logo" data-cursor="Home"><img src="assets/img/logo2.png" alt="dMaic Innovations"></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#home" class="magnetic">Home</a>
+    <a href="#about" class="magnetic">About Us</a>
+    <div class="nav-drop">
+      <a href="#products" class="magnetic">Products <span class="caret"></span></a>
+      <div class="mega">
+        <div class="mega-col">
+          <p class="mono">Pre Cleaners</p>
+          <a href="#products" data-open="dseries">Pre Cleaner "d" Series</a>
+          <a href="#products" data-open="iseries">Pre Cleaner "i" Series</a>
+          <a href="#products" data-open="cseries">Pre Cleaner "c" Series</a>
+        </div>
+        <div class="mega-col">
+          <p class="mono">Fine Cleaners</p>
+          <a href="#products" data-open="pseries">Fine Cleaner "p" Series</a>
+          <a href="#products" data-open="eseries">Fine Cleaner "e" Series</a>
+          <a href="#products" data-open="aseries">Fine Cleaner "a" Series</a>
+        </div>
+        <div class="mega-col">
+          <p class="mono">Separation &amp; More</p>
+          <a href="#products" data-open="destoner">Destoner Model "s" Series</a>
+          <a href="#products" data-open="gravity">Gravity Separator "m" Series</a>
+          <a href="#products" data-open="lab">Lab Machines "Mi" Series</a>
+          <a href="#products" data-open="punkofan">Punkofan "PF" Series</a>
+          <a href="#products" data-open="handling">Material Handling Equipment</a>
+        </div>
+      </div>
+    </div>
+    <a href="#turnkey" class="magnetic">Turnkey Solutions</a>
+    <a href="#contact" class="magnetic nav-cta">Contact</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#products">Products</a>
+  <a href="#turnkey">Turnkey Solutions</a>
+  <a href="#contact">Contact</a>
+  <p class="mono">sales@dmaicinnovations.com<br>+91 89517 66792</p>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="assets/img/1m2.jpg" alt="dMaic seed processing plant" class="hero-img active">
+    <img src="assets/img/2m2.jpg" alt="" class="hero-img">
+    <img src="assets/img/3m2.jpg" alt="" class="hero-img">
+  </div>
+  <canvas id="grainCanvas" class="hero-canvas"></canvas>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-content">
+    <p class="eyebrow mono"><span class="pulse"></span> Post-Harvest Technology &middot; Est. 2018 &middot; Bengaluru</p>
+    <h1 class="hero-title">
+      <span class="line"><span class="split">Delivering</span></span>
+      <span class="line"><span class="split outline">Smart</span></span>
+      <span class="line"><span class="split grad">Technologies</span></span>
+    </h1>
+    <p class="hero-sub">Pre Cleaners, Fine Cleaners, Gravity Separators, De-stoners and complete turnkey plants for seeds and free-flowing grains.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-primary magnetic" data-cursor="Explore"><span>Explore Machines</span><i class="arrow"></i></a>
+      <a href="#journey" class="btn btn-ghost magnetic"><span>See the Grain Journey</span></a>
+    </div>
+  </div>
+
+  <div class="hero-hud mono" aria-hidden="true">
+    <div class="hud-row"><span>Line status</span><b class="ok">Running</b></div>
+    <div class="hud-row"><span>Slide</span><b id="heroSlideNo">01 / 03</b></div>
+    <div class="hud-meter"><i id="heroMeter"></i></div>
+  </div>
+
+  <a href="#stats" class="scroll-cue" aria-label="Scroll down"><span class="mono">Scroll</span><i></i></a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Rice</span><b>✦</b><span>Wheat</span><b>✦</b><span>Maize</span><b>✦</b><span>Nuts</span><b>✦</b><span>Spices</span><b>✦</b><span>Beans</span><b>✦</b><span>Coffee</span><b>✦</b><span>Tea</span><b>✦</b><span>Hybrid Seeds</span><b>✦</b>
+    <span>Rice</span><b>✦</b><span>Wheat</span><b>✦</b><span>Maize</span><b>✦</b><span>Nuts</span><b>✦</b><span>Spices</span><b>✦</b><span>Beans</span><b>✦</b><span>Coffee</span><b>✦</b><span>Tea</span><b>✦</b><span>Hybrid Seeds</span><b>✦</b>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="stats" id="stats">
+  <div class="stat">
+    <div class="stat-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="52" class="prog" data-p="1"/></svg></div>
+    <div class="stat-num" data-count="2018" data-start="1990">2018</div>
+    <p>Year established by seasoned technocrats</p>
+  </div>
+  <div class="stat">
+    <div class="stat-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="52" class="prog" data-p=".66"/></svg></div>
+    <div class="stat-num" data-count="20" data-suffix="+">20+</div>
+    <p>Years of experience in post-harvest technology</p>
+  </div>
+  <div class="stat">
+    <div class="stat-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="52" class="prog" data-p=".9"/></svg></div>
+    <div class="stat-num" data-count="30" data-suffix="+">30+</div>
+    <p>Years of combined founder experience in turnkey projects</p>
+  </div>
+  <div class="stat">
+    <div class="stat-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="52" class="prog" data-p=".8"/></svg></div>
+    <div class="stat-num" data-count="11">11</div>
+    <p>Machine product lines, from lab scale to full plant</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="section-head">
+    <p class="kicker mono">01 &mdash; About Us</p>
+    <h2 class="reveal-title">Built by technocrats.<br><em>Engineered for odd conditions.</em></h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-media">
+      <div class="clip-reveal"><img src="assets/img/wheat2.jpg" alt="Wheat field" class="parallax-img"></div>
+      <div class="about-badge">
+        <svg viewBox="0 0 200 200" class="spin-text"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#circ">dMaic Innovations &bull; Since 2018 &bull; Bengaluru &bull; </textPath></text></svg>
+        <span class="badge-core">d</span>
+      </div>
+    </div>
+    <div class="about-copy">
+      <p class="lead scrub-words"><strong>dMaic Innovations</strong> was established in the year 2018 by the technocrats with rich experience of more than two decades in the field of Post harvesting technology to provide total solutions to the industry by offering state-of-the-art solutions with latest and proven technology filled with innovations.</p>
+      <p class="fade-up">dMaic Innovations has carefully designed the products to operate them at odd conditions suitable for all free flowing seeds/grains and manufactures Post-Harvest Agricultural processing machinery like Pre Cleaners, Fine Cleaners, Gravity Separators, De-stoners and offers turnkey plants for processing hybrid seeds / grains like Rice, Wheat, Maize, nuts, spices, beans, coffee, tea and for most of the free flowing agricultural products.</p>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <article class="pillar tilt">
+      <div class="pillar-ico"><svg viewBox="0 0 48 48"><path d="M6 42V20l12-8v8l12-8v8l12-8v30z"/><path d="M14 34h4M24 34h4M34 34h4"/></svg></div>
+      <h3>State-of-the-art Facility</h3>
+      <p>dMaic Innovations has the state-of-the-art manufacturing facility to manufacture the products as per the quality standards to cater every individual requirement of the customers as per our drawings.</p>
+    </article>
+    <article class="pillar tilt">
+      <div class="pillar-ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="7"/><path d="M10 42c0-8 6-13 14-13s14 5 14 13"/></svg></div>
+      <h3>Qualified People</h3>
+      <p>dMaic Innovations employs qualified and experienced manpower well-trained in the industry environment.</p>
+    </article>
+    <article class="pillar tilt">
+      <div class="pillar-ico"><svg viewBox="0 0 48 48"><path d="M24 44s14-12 14-24a14 14 0 0 0-28 0c0 12 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg></div>
+      <h3>One Roof, Bengaluru</h3>
+      <p>The Marketing &amp; Engineering Office along with the Manufacturing facility is located at Sy.No. 23/1, Mahanteshwara Layout, Bylakonenahalli, Lakshmipura Post, Bengaluru - 562162.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ GRAIN JOURNEY INFOGRAPHIC ============ -->
+<section class="journey" id="journey">
+  <div class="journey-pin">
+    <div class="section-head light">
+      <p class="kicker mono">02 &mdash; Infographic</p>
+      <h2>The Grain Journey</h2>
+      <p class="sub">How a typical dMaic processing line turns field-run grain into clean, graded seed. Scroll to run the line.</p>
+    </div>
+
+    <div class="journey-stage">
+      <svg class="journey-svg" viewBox="0 0 1400 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="pipeGrad" x1="0" x2="1">
+            <stop offset="0" stop-color="#f2b33d"/>
+            <stop offset=".5" stop-color="#19b4f0"/>
+            <stop offset="1" stop-color="#7cf2c4"/>
+          </linearGradient>
+        </defs>
+        <path id="pipeBase" class="pipe-base" d="M40 210 C 160 210, 160 90, 260 90 S 380 330, 500 330 S 620 90, 740 90 S 860 330, 980 330 S 1100 90, 1220 90 S 1320 210, 1370 210"/>
+        <path id="pipeFill" class="pipe-fill" d="M40 210 C 160 210, 160 90, 260 90 S 380 330, 500 330 S 620 90, 740 90 S 860 330, 980 330 S 1100 90, 1220 90 S 1320 210, 1370 210"/>
+        <g id="pipeGrains"></g>
+      </svg>
+
+      <div class="stations">
+        <div class="station" style="--x:2.9%;--y:50%" data-step="0">
+          <div class="st-node"><span>01</span></div>
+          <div class="st-card"><h4>Intake</h4><p>Field-run seed / grain enters with stones, straw, gunny threads &amp; dust.</p><em class="out">Input: raw lot</em></div>
+        </div>
+        <div class="station" style="--x:18.6%;--y:21.4%" data-step="1">
+          <div class="st-node"><span>02</span></div>
+          <div class="st-card"><h4>Bucket Elevator</h4><p>Vertical transport almost without mechanical damage.</p><em class="out">Gentle lift</em></div>
+        </div>
+        <div class="station" style="--x:35.7%;--y:78.6%" data-step="2">
+          <div class="st-node"><span>03</span></div>
+          <div class="st-card"><h4>Pre Cleaner</h4><p>Rotary scalper removes straw &amp; threads; aspiration lifts loose dust.</p><em class="out">Out: oversize, straw, dust</em></div>
+        </div>
+        <div class="station" style="--x:52.9%;--y:21.4%" data-step="3">
+          <div class="st-node"><span>04</span></div>
+          <div class="st-card"><h4>Fine Cleaner / Grader</h4><p>More retention time on screens separates oversize from undersize.</p><em class="out">Out: immature &amp; undersize</em></div>
+        </div>
+        <div class="station" style="--x:70%;--y:78.6%" data-step="4">
+          <div class="st-node"><span>05</span></div>
+          <div class="st-card"><h4>Destoner</h4><p>Primary deck separates stones; secondary deck recovers grain from them.</p><em class="out">Out: stones</em></div>
+        </div>
+        <div class="station" style="--x:87.1%;--y:21.4%" data-step="5">
+          <div class="st-node"><span>06</span></div>
+          <div class="st-card"><h4>Gravity Separator</h4><p>Same-size, different weight: light material leaves the heavy behind.</p><em class="out">Out: light seed</em></div>
+        </div>
+        <div class="station final" style="--x:97.9%;--y:50%" data-step="6">
+          <div class="st-node"><span>✓</span></div>
+          <div class="st-card"><h4>Clean Seed</h4><p>Graded, uniform output ready for bagging.</p><em class="out">Output</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="purity mono">
+      <span>Lot purity</span>
+      <div class="purity-bar"><i id="purityBar"></i></div>
+      <b id="purityLabel">Raw</b>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="products" id="products">
+  <div class="section-head">
+    <p class="kicker mono">03 &mdash; Products</p>
+    <h2 class="reveal-title">Machines that<br><em>sort the world's grain.</em></h2>
+  </div>
+
+  <div class="filters" role="tablist">
+    <button class="chip active" data-filter="all">All <sup>11</sup></button>
+    <button class="chip" data-filter="pre">Pre Cleaners <sup>3</sup></button>
+    <button class="chip" data-filter="fine">Fine Cleaners <sup>3</sup></button>
+    <button class="chip" data-filter="sep">Separation <sup>2</sup></button>
+    <button class="chip" data-filter="aux">Air &amp; Handling <sup>2</sup></button>
+    <button class="chip" data-filter="lab">Lab <sup>1</sup></button>
+  </div>
+
+  <div class="product-grid" id="productGrid"><!-- rendered by JS --></div>
+  <p class="disclaimer mono">Disclaimer: dMaic Innovations reserves the rights to change the specifications of the equipment time to time depending on the market requirements and trend.</p>
+</section>
+
+<!-- ============ ENGINEERING BENTO (INFOGRAPHICS) ============ -->
+<section class="bento-sec" id="engineering">
+  <div class="section-head light">
+    <p class="kicker mono">04 &mdash; Engineering Inside</p>
+    <h2>What makes a dMaic machine different</h2>
+  </div>
+
+  <div class="bento">
+    <!-- Rubber ball cleaning -->
+    <article class="bento-card b-balls">
+      <div class="viz viz-balls" aria-hidden="true">
+        <div class="screen-mesh"></div>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p class="mono tag">Fine &amp; Pre Cleaners</p>
+      <h3>Food Grade Rubber Ball Cleaning</h3>
+      <p>Bouncing rubber balls under the screens keep the apertures clear, so the screen system never chokes mid-lot.</p>
+    </article>
+
+    <!-- Punkofan -->
+    <article class="bento-card b-fan">
+      <div class="viz viz-fan" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" class="fan-housing"/>
+          <g class="impeller">
+            <path d="M100 100 C 110 70, 130 50, 150 45"/>
+            <path d="M100 100 C 130 110, 150 130, 155 150"/>
+            <path d="M100 100 C 90 130, 70 150, 50 155"/>
+            <path d="M100 100 C 70 90, 50 70, 45 50"/>
+            <path d="M100 100 C 120 85, 140 85, 165 95"/>
+            <path d="M100 100 C 85 120, 85 140, 95 165"/>
+          </g>
+          <circle cx="100" cy="100" r="10" class="hub"/>
+        </svg>
+        <div class="power-compare">
+          <div><span class="mono">Cyclone + blower</span><div class="pbar"><i style="--w:92%"></i></div></div>
+          <div><span class="mono">Punkofan</span><div class="pbar good"><i style="--w:68%"></i></div></div>
+          <small class="mono">Illustrative: lower static pressure loss means less power drawn</small>
+        </div>
+      </div>
+      <p class="mono tag">Punkofan "PF" Series</p>
+      <h3>Fan + Cyclone in One</h3>
+      <p>Pulls light impurities with minimum static pressure loss, for a decent reduction in the line's overall electricity requirement.</p>
+    </article>
+
+    <!-- Gravity deck -->
+    <article class="bento-card b-deck">
+      <div class="viz viz-deck" aria-hidden="true">
+        <div class="deck">
+          <div class="zone z1"><span class="mono">1/3 vertical</span></div>
+          <div class="zone z2"><span class="mono">2/3 horizontal separation</span></div>
+          <div class="deck-grains" id="deckGrains"></div>
+        </div>
+        <div class="deck-legend mono"><span><i class="heavy"></i>Heavy</span><span><i class="light"></i>Light</span></div>
+      </div>
+      <p class="mono tag">Gravity Separator "m" Series</p>
+      <h3>Weight, not size</h3>
+      <p>The first third of the deck separates by weight vertically; the remaining two thirds separate horizontally. Best results after size grading.</p>
+    </article>
+
+    <!-- Destoner dials -->
+    <article class="bento-card b-dials">
+      <div class="viz viz-dials" aria-hidden="true">
+        <div class="dial"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="d-track"/><circle cx="50" cy="50" r="40" class="d-val"/></svg><span class="mono">Feed Rate</span></div>
+        <div class="dial"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="d-track"/><circle cx="50" cy="50" r="40" class="d-val"/></svg><span class="mono">Deck Slope</span></div>
+        <div class="dial"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="d-track"/><circle cx="50" cy="50" r="40" class="d-val"/></svg><span class="mono">Deck Speed</span></div>
+        <div class="dial"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="d-track"/><circle cx="50" cy="50" r="40" class="d-val"/></svg><span class="mono">Air Flow</span></div>
+      </div>
+      <p class="mono tag">Destoner "s" Series</p>
+      <h3>4 controls, minute adjustment</h3>
+      <p>Flexibility to suit grain and variety variations. A pressure-type design uses less motor power by eliminating avoidable losses.</p>
+    </article>
+
+    <!-- Materials -->
+    <article class="bento-card b-steel">
+      <div class="viz viz-steel" aria-hidden="true">
+        <div class="layer l1"><span class="mono">Stainless steel contact parts</span></div>
+        <div class="layer l2"><span class="mono">Food grade UHMW lining</span></div>
+        <div class="layer l3"><span class="mono">Dual-tone coated body</span></div>
+      </div>
+      <p class="mono tag">Built to last</p>
+      <h3>Food-grade where it touches grain</h3>
+      <p>All contact parts with the seed / grain are stainless steel; discharge hoppers are lined with food grade UHMW for better wear resistance.</p>
+    </article>
+
+    <!-- Modular -->
+    <article class="bento-card b-mod">
+      <div class="viz viz-mod" aria-hidden="true">
+        <div class="mod-block">Feed</div><div class="mod-block">Scalper</div><div class="mod-block">Screens</div><div class="mod-block">Aspiration</div><div class="mod-block">Fan</div>
+      </div>
+      <p class="mono tag">Configurable</p>
+      <h3>Modular &amp; Left / Right hand</h3>
+      <p>Modular feeding modules, separate motors per function, and outlets on the right- or left-hand side to suit every site layout.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CROP ORBIT ============ -->
+<section class="crops" id="crops">
+  <div class="orbit-wrap">
+    <div class="orbit orbit-1">
+      <span style="--i:0">Rice</span><span style="--i:1">Wheat</span><span style="--i:2">Maize</span><span style="--i:3">Nuts</span>
+    </div>
+    <div class="orbit orbit-2">
+      <span style="--i:0">Spices</span><span style="--i:1">Beans</span><span style="--i:2">Coffee</span><span style="--i:3">Tea</span><span style="--i:4">Paddy</span><span style="--i:5">Soya</span>
+    </div>
+    <div class="orbit-core">
+      <p class="mono">Suitable for</p>
+      <h3>All free&#8209;flowing<br>seeds &amp; grains</h3>
+    </div>
+  </div>
+  <div class="crops-copy">
+    <p class="kicker mono">05 &mdash; Applications</p>
+    <h2 class="reveal-title">One line.<br><em>Every free-flowing crop.</em></h2>
+    <p class="fade-up">Turnkey plants for processing hybrid seeds and grains like Rice, Wheat, Maize, nuts, spices, beans, coffee, tea, and most other free-flowing agricultural products.</p>
+  </div>
+</section>
+
+<!-- ============ TURNKEY (HORIZONTAL) ============ -->
+<section class="turnkey" id="turnkey">
+  <div class="turnkey-intro">
+    <div class="section-head">
+      <p class="kicker mono">06 &mdash; Turnkey Solutions</p>
+      <h2 class="reveal-title">From concept<br><em>to commissioning.</em></h2>
+    </div>
+    <div class="turnkey-copy">
+      <div class="clip-reveal tk-img"><img src="assets/img/turnkey-solutions.jpg" alt="Turnkey seed processing plant" class="parallax-img"></div>
+      <div>
+        <p class="lead">dMaic Innovations, having founders with the combined experience of more than three decades, also provides turnkey solutions from concept to commissioning in the field of storage and cleaning equipment with innovative solutions.</p>
+        <p class="fade-up">We also undertake turnkey projects in this field to cater the customer requirement by providing the smartest solutions within the existing constraints, project to project. The vast experience in the areas of Service, Projects, Engineering, Applications, Research &amp; Development and Trouble shooting helps us in providing the best suitable solutions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-scroll" id="hScroll">
+    <div class="h-track" id="hTrack">
+      <div class="h-intro">
+        <p class="mono">End-to-end support</p>
+        <h3>10 ways we stand behind your plant</h3>
+        <div class="h-hint mono">Keep scrolling &rarr;</div>
+      </div>
+      <div class="h-card"><b>01</b><h4>Engineering</h4><svg viewBox="0 0 64 64"><path d="M8 56h48M14 56V30l18-18 18 18v26"/><path d="M26 56V40h12v16"/></svg></div>
+      <div class="h-card"><b>02</b><h4>Structural Designs</h4><svg viewBox="0 0 64 64"><path d="M8 56L32 8l24 48z"/><path d="M20 32h24M14 44h36M32 8v48"/></svg></div>
+      <div class="h-card"><b>03</b><h4>Setting up a new plant</h4><svg viewBox="0 0 64 64"><path d="M6 56V28l14 8V28l14 8V28l14 8V12h10v44z"/></svg></div>
+      <div class="h-card"><b>04</b><h4>Pollution control</h4><svg viewBox="0 0 64 64"><path d="M32 6c10 14 18 22 18 32a18 18 0 0 1-36 0c0-10 8-18 18-32z"/><path d="M24 40c0 5 4 8 8 8"/></svg></div>
+      <div class="h-card"><b>05</b><h4>Performance enhancement</h4><svg viewBox="0 0 64 64"><path d="M8 52l14-14 10 8 22-26"/><path d="M42 20h12v12"/></svg></div>
+      <div class="h-card"><b>06</b><h4>Improving the throughput</h4><svg viewBox="0 0 64 64"><path d="M6 20h40M6 32h48M6 44h40"/><path d="M44 12l10 8-10 8M50 36l8 8-8 8"/></svg></div>
+      <div class="h-card"><b>07</b><h4>Reduction of maintenance hours</h4><svg viewBox="0 0 64 64"><circle cx="32" cy="34" r="22"/><path d="M32 20v14l10 6"/><path d="M26 6h12"/></svg></div>
+      <div class="h-card"><b>08</b><h4>Trouble shooting</h4><svg viewBox="0 0 64 64"><circle cx="26" cy="26" r="16"/><path d="M38 38l18 18"/><path d="M20 26h12M26 20v12"/></svg></div>
+      <div class="h-card"><b>09</b><h4>Automation</h4><svg viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="32" rx="4"/><path d="M22 54h20M32 46v8"/><path d="M20 34l8-8 6 6 10-10"/></svg></div>
+      <div class="h-card"><b>10</b><h4>Installation &amp; Commissioning</h4><svg viewBox="0 0 64 64"><path d="M14 34l12 12 26-28"/><circle cx="32" cy="32" r="26"/></svg></div>
+      <div class="h-card h-rnd">
+        <b>R&amp;D</b>
+        <h4>Always improving</h4>
+        <p>dMaic Innovations is also involved in Research and Development activities to improve products and processes consistently to cater the customer requirements time to time. This gives us more capability to offer delighted service to the customers at all times.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="gal-row">
+    <figure class="gal-item"><img src="assets/img/2m2.jpg" alt="dMaic processing plant installation"></figure>
+    <figure class="gal-item"><img src="assets/img/3m2.jpg" alt="dMaic processing plant installation"></figure>
+  </div>
+  <h2 class="gal-type" aria-hidden="true">Clean <span>seed.</span> Smart <span>plant.</span></h2>
+  <div class="gal-row rev">
+    <figure class="gal-item"><img src="assets/img/wheat3m.jpg" alt="Wheat"></figure>
+    <figure class="gal-item"><img src="assets/img/wheat4.jpg" alt="Wheat ears"></figure>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-radar" aria-hidden="true">
+    <div class="radar"><i></i><i></i><i></i><span class="sweep"></span><span class="pin"></span></div>
+    <p class="mono coords">Bengaluru &middot; Karnataka &middot; India</p>
+  </div>
+  <div class="contact-body">
+    <p class="kicker mono">07 &mdash; Contact</p>
+    <h2 class="contact-title"><span class="split-c">Let's build</span><br><span class="split-c grad">your line.</span></h2>
+    <div class="contact-cards">
+      <a class="c-card magnetic" href="tel:+918951766792" data-cursor="Call">
+        <span class="mono">Mobile</span><b>+91 89517 66792</b>
+      </a>
+      <a class="c-card magnetic" href="mailto:sales@dmaicinnovations.com" data-cursor="Email">
+        <span class="mono">Email</span><b>sales@dmaicinnovations.com</b>
+      </a>
+      <div class="c-card addr">
+        <span class="mono">Visit</span>
+        <address><b>dMaic Innovations Private Limited</b><br>Sy.No. 23/1, Mahanteshwara Layout,<br>Bylakonenahalli, Lakshmipura Post,<br>Bengaluru - 562162</address>
+      </div>
+    </div>
+    <a href="mailto:sales@dmaicinnovations.com" class="btn btn-primary big magnetic" data-cursor="Say hi"><span>Request a Quote</span><i class="arrow"></i></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="foot-grid">
+    <div>
+      <img src="assets/img/logo2.png" alt="dMaic Innovations" class="foot-logo">
+      <p>dMaic Innovations Pvt. Ltd. was established in the year 2018 by the technocrats with rich experience in post-harvest technology.</p>
+    </div>
+    <div>
+      <p class="mono">Quick Links</p>
+      <a href="#home">Home</a><a href="#about">About Us</a><a href="#turnkey">Turnkey Solutions</a><a href="#contact">Contact</a>
+    </div>
+    <div class="foot-products">
+      <p class="mono">Products</p>
+      <a href="#products" data-open="dseries">Pre Cleaner "d" Series</a>
+      <a href="#products" data-open="iseries">Pre Cleaner "i" Series</a>
+      <a href="#products" data-open="cseries">Pre Cleaner "c" Series</a>
+      <a href="#products" data-open="pseries">Fine Cleaner "p" Series</a>
+      <a href="#products" data-open="eseries">Fine Cleaner "e" Series</a>
+      <a href="#products" data-open="aseries">Fine Cleaner "a" Series</a>
+      <a href="#products" data-open="destoner">Destoner Model "s" Series</a>
+      <a href="#products" data-open="gravity">Gravity Separator "m" Series</a>
+      <a href="#products" data-open="lab">Lab Machines "Mi" Series</a>
+      <a href="#products" data-open="punkofan">Punkofan "PF" Series</a>
+      <a href="#products" data-open="handling">Material Handling Equipment</a>
+    </div>
+    <div>
+      <p class="mono">Our Contact</p>
+      <address>dMaic Innovations Private Limited,<br>Sy.No. 23/1, Mahanteshwara Layout,<br>Bylakonenahalli, Lakshmipura Post,<br>Bengaluru - 562162</address>
+      <a href="tel:+918951766792">+91 89517 66792</a>
+      <a href="mailto:sales@dmaicinnovations.com">sales@dmaicinnovations.com</a>
+    </div>
+  </div>
+  <div class="foot-giant" aria-hidden="true">dMaic</div>
+  <div class="foot-bottom mono">
+    <span>Copyright &copy; 2024 dMaic Innovations Private Limited. All rights reserved.</span>
+    <a href="#home" class="to-top magnetic">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<!-- ============ PRODUCT DRAWER ============ -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <button class="drawer-close" data-close aria-label="Close">&times;</button>
+    <div class="drawer-content" id="drawerContent"></div>
+  </aside>
+</div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/Flip.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="assets/vendor/split-type.min.js"></script>
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/vanilla-tilt.min.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
